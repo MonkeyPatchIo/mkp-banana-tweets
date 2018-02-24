@@ -1,0 +1,14 @@
+{
+  "name": "mkp-banana-tweets",
+  "version": "1.0.0",
+  "description": "This example demonstrates how to use an AWS Lambda integrating Twitter API, AWS Comprehend and DynamoDB.",
+  "author": "MonkeyPatch",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.202.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "lambda-local": "^1.4.5"
+  }
+}
