@@ -3,6 +3,8 @@
 This project is an example of AWS Lambda Function polling tweets from the Twitter API, running sentiment detection with AWS Comprehend and storing results in a DynamoDB table.
 ![aws lambda image](lambda_function.png)
 
+This example uses the [AWS NodeJS SDK](https://aws.amazon.com/sdk-for-node-js) and assume you are familiar with [npm](https://www.npmjs.com)
+
 ## AWS Configuration
 AWS configuration can be set using the CLI command `aws configure`
 Alternatively, the configuration can be set in the file `~/.aws/credentials`
@@ -10,6 +12,7 @@ To programmatically configure the services, AWS API Admin access will be require
 
 ## AWS Services Setup
 The script `setup.js` will create the required IAM Role, Lambda Function and DynamoDB Table for you.
+To configure the Lambda Function and associated services, run the following scripts:
 ```
 # Package the code
 ./create_zip.sh
