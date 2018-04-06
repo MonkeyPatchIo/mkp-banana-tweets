@@ -4,11 +4,43 @@
   "description": "This example demonstrates how to use an AWS Lambda integrating Twitter API, AWS Comprehend and DynamoDB.",
   "author": "MonkeyPatch",
   "license": "MIT",
+  "scripts": {
+    "build": "babel src -d lib",
+    "build-test": "babel __tests__ -d __tests__",
+    "codecov": "codecov",
+    "coverage": "npm run test && npm run codecov",
+    "lint": "eslint .",
+    "test": "npm run build && jest",
+    "deploy": "deploy.sh"
+  },
   "dependencies": {
-    "aws-sdk": "^2.202.0",
+    "async": "^2.6.0",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
-    "lambda-local": "^1.4.5"
+    "aws-sdk": "^2.202.0",
+    "aws-sdk-mock": "^1.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "bluebird": "^3.5.1",
+    "codecov": "3.0.0",
+    "eslint": "4.18.2",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-jest": "21.13.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "jest": "22.4.2",
+    "lambda-local": "^1.4.5",
+    "nock": "^9.2.3",
+    "prettier": "1.11.1",
+    "webpack": "4.1.1"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }

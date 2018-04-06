@@ -61,7 +61,7 @@ function createLambdaFunction(roleArn) {
         Code: {ZipFile: zipFile},
         Description: 'MonkeyPatch Lambda Function example',
         FunctionName: 'MKPBananaTweet',
-        Handler: 'index.handler',
+        Handler: 'lib/index.handler',
         MemorySize: 128,
         Publish: true,
         Role: roleArn,

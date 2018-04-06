@@ -1,0 +1,15 @@
+{
+   "ErrorList": [ ],
+   "ResultList": [ 
+      { 
+         "Index": 1,
+         "Sentiment": "MIXED",
+         "SentimentScore": { 
+            "Mixed": 1,
+            "Negative": 0,
+            "Neutral": 0,
+            "Positive": 0
+         }
+      }
+   ]
+}

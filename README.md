@@ -3,18 +3,21 @@
 This project is an example of AWS Lambda Function polling tweets from the Twitter API, running sentiment detection with AWS Comprehend and storing results in a DynamoDB table.
 ![aws lambda image](lambda_function.png)
 
-This example uses the [AWS NodeJS SDK](https://aws.amazon.com/sdk-for-node-js) and assume you are familiar with [npm](https://www.npmjs.com)
+This example uses the [AWS NodeJS SDK](https://aws.amazon.com/sdk-for-node-js) and assumes you are familiar with [npm](https://www.npmjs.com)
+It is recommended to use node `v6.10` for this project.
 
-## AWS Configuration
+## Lambda Setup
+
+### AWS Configuration
 AWS configuration can be set using the CLI command `aws configure`
 Alternatively, the configuration can be set in the file `~/.aws/credentials`
 To programmatically configure the services, AWS API Admin access will be required.
 
-## AWS Services Setup
-The script `setup.js` will create the required IAM Role, Lambda Function and DynamoDB Table for you.
+### AWS Services Setup
+The script `setup.js` will create the required IAM Role, Lambda Function and DynamoDB Table for you. It is assumed that the AWS credentials previously configured have admin access.
 To configure the Lambda Function and associated services, run the following scripts:
 ```
-# Package the code
+# Package the lambda code
 ./create_zip.sh
 
 # Configure the AWS services
@@ -39,7 +42,7 @@ AWS_REGION_COMPREHEND=us-east-1
 AWS_REGION_DYNAMODB=ap-southeast-2
 ```
 
-### Test your Lambda Function
+## Execute your Lambda Function
 The CloudWatch event scheduler is disabled by default. You will need to enable it if you want to automatically import data every 20 minutes.
 
 You can also create a test trigger from the AWS Lambda function > Configure Test Event and then select the template Scheduled Event.
@@ -70,9 +73,16 @@ You can test lambda functions locally by using the library [lambda-local](https:
 npm install -g lambda-local
 ```
 
-And then execute your function vy simulating an event
+And then execute your function by simulating an event
 ```
-lambda-local -l index.js -h handler -e ./test/events/schedule_event.json -t 15
+lambda-local -l lib/index.js -h handler -e ./__tests__/events/schedule_event.json -t 15
+```
+
+## Unit Testing
+The unit test suite is located under the `__tests__` folder and executed using [Jest](https://facebook.github.io/jest/)
+This basic test suite can be run using the command
+```
+npm run test
 ```
 
 ## About MonkeyPatch
